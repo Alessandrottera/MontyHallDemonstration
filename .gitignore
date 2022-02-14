@@ -1,0 +1,18 @@
+# Ignora file nascosti
+/.classpath
+/.externalToolBuilders
+/.factorypath
+/.idea
+/.project
+/.settings
+/.springBeans
+/**/*.iml
+
+#Ignora file di build
+/artu
+/build
+/logs
+/Logs
+/spring-shell.log
+/out
+/outputTest
