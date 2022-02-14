@@ -28,7 +28,7 @@ public class PlayerPlaysRandom {
         int stayWinsPercentage = (stayWins * 100) / rounds;
 
         System.out.println("Game was played " + rounds + " times");
-        System.out.println("User won by switching: " + switchWins + " times. If you switch your door, your percentage of winning is: " + switchWinsPercentage + "%");
-        System.out.println("User won by not switching: " + stayWins + " times. If you don't switch your door, your percentage of winning is: " + stayWinsPercentage + "%");
+        System.out.println("User had the opportunity of winning by switching " + switchWins + " times. If you switch your door, your percentage of winning is: " + switchWinsPercentage + "%");
+        System.out.println("User had the opportunity of winning by not switching " + stayWins + " times. If you don't switch your door, your percentage of winning is: " + stayWinsPercentage + "%");
     }
 }
