@@ -36,12 +36,6 @@ public class PlayerIsScripted {
             playerBet.printPlayerChoicesInConsole();
         });
 
-        int winAtFirstStrike = (int) possibleOutcomesWithMonty.stream().filter(bet -> bet.getDoors()[bet.getPlayerChoice()] == 1).count();
-        int lostAtFirstStrike = (int) possibleOutcomesWithMonty.stream().filter(bet -> bet.getDoors()[bet.getPlayerChoice()] == 0).count();
-
-        System.out.println("The Player can win " + winAtFirstStrike + " times by having immediately the right answer");
-        System.out.println("The Player can lose " + lostAtFirstStrike + " times by having immediately the wrong answer");
-
         System.out.println("If our answer is wrong Monty Hall can't open the door with the prize, his choice isn't random: he open the door hiding the goat with a probability of 1");
         System.out.println("If our answer is right Monty Hall can choose between two doors, his choice is now random: he now opens one of the door hiding a goat with a probability of 1/2");
         System.out.println("This is the table of possibles outcomes that we find at this point of the game");
@@ -50,7 +44,14 @@ public class PlayerIsScripted {
         possibleOutcomesWithMonty.stream().forEach(montyChoice ->{
             montyChoice.printMontyChoicesInConsole();
         });
-        System.out.println("Since the probability of winning is P(W=1) and the probability of losing is P(W=0) we can assume the probabilities of winnig and loosing with or without switching");
+
+        int winAtFirstStrike = (int) possibleOutcomesWithMonty.stream().filter(bet -> bet.getDoors()[bet.getPlayerChoice()] == 1).count();
+        int lostAtFirstStrike = (int) possibleOutcomesWithMonty.stream().filter(bet -> bet.getDoors()[bet.getPlayerChoice()] == 0).count();
+
+        System.out.println("The Player can win " + winAtFirstStrike + " times by having immediately the right answer");
+        System.out.println("The Player can lose " + lostAtFirstStrike + " times by having immediately the wrong answer");
+
+        System.out.println("Since the probability of winning is P(W=1) = [6 * (1/9 * 1/2)]  and the probability of losing is P(W=0) = [6 * (1/9 * 1)] we can assume the probabilities of winnig and loosing with or without switching");
         double percentageProbabilityOfVictoryWithNoSwitch = winAtFirstStrike * (1/2.0) * (1/9.0) * 100.0;
         double percentageProbabilityOfVictoryWithSwitch = winAtFirstStrike * 1.0 * (1/9.0) * 100.0;
         DecimalFormat numberFormat = new DecimalFormat("#.00");
@@ -79,7 +80,7 @@ public class PlayerIsScripted {
     }
 
     private List<BetBo> doorsArranger() {
-        List<BetBo> doorsArramgementList = new ArrayList<>();
+        List<BetBo> doorsArrangementList = new ArrayList<>();
         List<int[]> doorsArrangement = new ArrayList<>();
 
         int possibleArrangements = 3;
@@ -92,10 +93,10 @@ public class PlayerIsScripted {
         for (int[] doors: doorsArrangement) {
             BetBo betBoDoor = new BetBo();
             betBoDoor.setDoors(doors);
-            doorsArramgementList.add(betBoDoor);
+            doorsArrangementList.add(betBoDoor);
         }
 
-        return doorsArramgementList;
+        return doorsArrangementList;
     }
 
     private List<BetBo> playerChoiceScripting(List<BetBo> betsPossibleToBeChoosen) {

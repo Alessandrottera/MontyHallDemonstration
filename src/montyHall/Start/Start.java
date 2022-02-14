@@ -6,7 +6,6 @@ import montyHall.PlayTheGame.PlayerPlaysRandom;
 public class Start {
 
     public static void main(String args[]){
-
         System.out.println("Start demonstration of Monty Hall Paradox");
         PlayerIsScripted scriptedGame = new PlayerIsScripted();
         scriptedGame.startMontyHallGameScripted();
@@ -15,5 +14,4 @@ public class Start {
         PlayerPlaysRandom randomGame = new PlayerPlaysRandom();
         randomGame.startMontyHallGameRandomized();
     }
-
 }
