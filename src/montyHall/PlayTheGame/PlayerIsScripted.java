@@ -36,9 +36,9 @@ public class PlayerIsScripted {
             playerBet.printPlayerChoicesInConsole();
         });
 
-        System.out.println("If our answer is wrong Monty Hall can't open the door with the prize, his choice isn't random: he open the door hiding the goat with a probability of 1");
-        System.out.println("If our answer is right Monty Hall can choose between two doors, his choice is now random: he now opens one of the door hiding a goat with a probability of 1/2");
-        System.out.println("This is the table of possibles outcomes that we find at this point of the game");
+        System.out.println("If the player chose the losing door, Monty Hall can not open the door with the prize or the one choosen by the player, so his choice cannot be random: he opens the door hiding the goat with a probability of 1");
+        System.out.println("If the player chose the winning door, Monty Hall can choose between two doors, his choice is random: he now opens one of the doors hiding a goat with a probability of 1/2");
+        System.out.println("This is the table of possible outcomes we have at this stage");
         System.out.println("|A|B|C|P|M|");
 
         possibleOutcomesWithMonty.stream().forEach(montyChoice ->{
@@ -48,14 +48,14 @@ public class PlayerIsScripted {
         int winAtFirstStrike = (int) possibleOutcomesWithMonty.stream().filter(bet -> bet.getDoors()[bet.getPlayerChoice()] == 1).count();
         int lostAtFirstStrike = (int) possibleOutcomesWithMonty.stream().filter(bet -> bet.getDoors()[bet.getPlayerChoice()] == 0).count();
 
-        System.out.println("The Player can win " + winAtFirstStrike + " times by having immediately the right answer");
-        System.out.println("The Player can lose " + lostAtFirstStrike + " times by having immediately the wrong answer");
+        System.out.println("The Player can win " + winAtFirstStrike + " times if choosing the right door from the beginning");
+        System.out.println("The Player can lose " + lostAtFirstStrike + " times if choosing the wrong door from the beginning");
 
-        System.out.println("Since the probability of winning is P(W=1) = [6 * (1/9 * 1/2)]  and the probability of losing is P(W=0) = [6 * (1/9 * 1)] we can assume the probabilities of winnig and loosing with or without switching");
+        System.out.println("After Monty Hall opens one door, the probability of winning is P(W=1) = [6 * (1/9 * 1/2)] and the probability of losing is P(W=0) = [6 * (1/9 * 1)]; we can assume the probabilities of winning with or without switching");
         double percentageProbabilityOfVictoryWithNoSwitch = winAtFirstStrike * (1/2.0) * (1/9.0) * 100.0;
         double percentageProbabilityOfVictoryWithSwitch = winAtFirstStrike * 1.0 * (1/9.0) * 100.0;
         DecimalFormat numberFormat = new DecimalFormat("#.00");
-        System.out.println("We now know that the percentage of winnig without switching the door is at " + numberFormat.format(percentageProbabilityOfVictoryWithNoSwitch) + "%");
+        System.out.println("We now know that the percentage of winning without switching the door is at " + numberFormat.format(percentageProbabilityOfVictoryWithNoSwitch) + "%");
         System.out.println("And the percentage of winning switching the door is at " + numberFormat.format(percentageProbabilityOfVictoryWithSwitch) + "%");
 
     }
@@ -212,5 +212,4 @@ public class PlayerIsScripted {
 
         return montyDoorsOpenedScripted;
     }
-
 }

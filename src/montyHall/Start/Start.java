@@ -13,5 +13,6 @@ public class Start {
         System.out.println("Now the program will simulate a real life scenario of the Monty Hall Game");
         PlayerPlaysRandom randomGame = new PlayerPlaysRandom();
         randomGame.startMontyHallGameRandomized();
+        System.out.println("Demonstration ended successfully!");
     }
 }
