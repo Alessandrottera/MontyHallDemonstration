@@ -9,7 +9,7 @@ public class PlayerPlaysRandom {
 
     public void startMontyHallGameRandomized() {
 
-        int rounds = 100000;
+        int rounds = 10000000;
         Map<String, Integer> results = playTheGame(rounds);
 
         int switchWins = results.get("switchWins");
