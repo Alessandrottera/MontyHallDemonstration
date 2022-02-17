@@ -48,18 +48,13 @@ public class PlayerIsScripted {
         int winAtFirstStrike = (int) possibleOutcomesWithMonty.stream().filter(bet -> bet.getDoors()[bet.getPlayerChoice()] == 1).count();
         int lostAtFirstStrike = (int) possibleOutcomesWithMonty.stream().filter(bet -> bet.getDoors()[bet.getPlayerChoice()] == 0).count();
 
-        System.out.println("The Player can win " + winAtFirstStrike + " times if choosing the right door from the beginning");
-        System.out.println("The Player can lose " + lostAtFirstStrike + " times if choosing the wrong door from the beginning");
-
-        System.out.println("After Monty Hall opens one door, the probability of winning is P(W=1) = [6 * (1/9 * 1/2)] and the probability of losing is P(W=0) = [6 * (1/9 * 1)]; we can assume the probabilities of winning with or without switching");
-        System.out.println("Since the probability of winning is P(W=1) = [" + winAtFirstStrike + " * (1/9 * 1/2)] and the probability of losing is P(W=0) = [" + lostAtFirstStrike + " * (1/9 * 1)] we can assume the probabilities of winnig and loosing with or without switching");
+        System.out.println("Since the probability of winning is P(W=1) = [" + winAtFirstStrike + " * (1/9 * 1/2)] and the probability of losing is P(W=0) = [" + lostAtFirstStrike + " * (1/9 * 1)] we can assume the probabilities of winning and loosing with or without switching");
 
         double percentageProbabilityOfVictoryWithNoSwitch = winAtFirstStrike * (1 / 2.0) * (1 / 9.0) * 100.0;
         double percentageProbabilityOfVictoryWithSwitch = winAtFirstStrike * 1.0 * (1 / 9.0) * 100.0;
         DecimalFormat numberFormat = new DecimalFormat("#.00");
-        System.out.println("We now know that the percentage of winning without switching the door is at " + numberFormat.format(percentageProbabilityOfVictoryWithNoSwitch) + "%");
-        System.out.println("Since the probability of loosing ");
-        System.out.println("And the percentage of winning switching the door is at " + numberFormat.format(percentageProbabilityOfVictoryWithSwitch) + "%");
+        System.out.println("We know that the percentage of winning without switching the door is at " + numberFormat.format(percentageProbabilityOfVictoryWithNoSwitch) + "%");
+        System.out.println("So we now also know that if we decide to switch door, the percentage of winning is at " + numberFormat.format(percentageProbabilityOfVictoryWithSwitch) + "%");
 
     }
 
